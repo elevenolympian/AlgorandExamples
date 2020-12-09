@@ -70,9 +70,8 @@ You should run your own node
     To start the mainnet network
     ```
     goal node start -d ~/node/data
-    goal node status -d ~/node/data
-   ```
+    goal node status -d ~/node/data```
 
 ### Algorand System Architecture
 
-[![Product Name Screen Shot][product-screenshot]](img/Algorand_Networks.png)
+[![Algorand Network Architecture Screenshot][network-screenshot]](img/Algorand_Networks.png)
