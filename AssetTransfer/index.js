@@ -91,7 +91,9 @@ async function priceSubmitter() {
 }
 
 async function submitOracleTransaction() {
-
+// The Oracle, a real-world trusted entity, must create a pre-signed
+//  transaction with the data included in that transaction,
+//   in this case, the price information, and make it available to everyone
 }
 
 
