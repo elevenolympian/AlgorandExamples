@@ -1,23 +1,24 @@
 ## Algorand Testnet, Betanet and Mainnet Installation for Ubuntu Operating System (Version agnostic)
 
-You should run your own node
+You should run your own node. 
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. You should install a node and then run it.
+
 2. Type the following commands
    ```sudo apt-get update
-        sudo apt-get install -y gnupg2 curl software-properties-common
-        curl -O https://releases.algorand.com/key.pub
-        sudo apt-key add key.pub
-        sudo add-apt-repository "deb https://releases.algorand.com/deb/ stable main"
-        sudo apt-get update
+      sudo apt-get install -y gnupg2 curl software-properties-common
+      curl -O https://releases.algorand.com/key.pub
+      sudo apt-key add key.pub
+      sudo add-apt-repository "deb https://releases.algorand.com/deb/ stable main"
+      sudo apt-get update
 
-    sudo apt-get install -y algorand-devtools
+      sudo apt-get install -y algorand-devtools
 
-    sudo apt-get install -y algorand
+      sudo apt-get install -y algorand
 
-    algod -v
+      algod -v
    ```
 
 3. Then you should do the next steps
@@ -69,27 +70,55 @@ You should run your own node
     cp ~/node/genesisfiles/testnet/genesis.json ~/node/testnetdata
    ```
 
+9. To start or stop Algorand node, while the system is starting
+         ```
+    sudo systemctl start algorand
+    sudo systemctl stop algorand
+   ```
+
+
 ### Starting Node
-    To start the test network
+
+1. To start the test network
 
     ```goal node start -d ~/node/testnetdata
     goal node status -d ~/node/testnetdata
    ```
 
-    To start the betanet network
+2.  To start the betanet network
 
     ```
     goal node start -d ~/node/betanetdata
     goal node status -d ~/node/betanetdata
    ```
 
-    To start the mainnet network
+ 3. To start the mainnet network
 
     ```
     goal node start -d ~/node/data
     goal node status -d ~/node/data
     ```
 
+### Creation of a Wallet
+1. To create a wallet 
+
+    ```
+    goal wallet new testnetwallet -d ~/node/testnetdata
+    ```
+2. To create an account
+
+    ```
+    goal account new -d ~/node/testnetdata
+    ```
+3. List accounts    
+    
+    ```
+    goal account list -d ~/node/testnetdata
+    ```
+
+
+
+
 ### Algorand System Architecture
 
-[![Algorand Network Architecture Screenshot][network-screenshot]](img/Algorand_Networks.png)
+[![Algorand Network Architecture Screenshot][network-screenshot]](https://github.com/elevenolympian/AlgorandExamples/tree/development/AssetTransfer/img/Algorand_Networks.png)
