@@ -105,6 +105,11 @@ You should run your own node.
     goal node status -d ~/node/data
     ```
 
+### Algorand System Architecture
+
+
+![Algorand Network Architecture](img/Algorand_Networks.png)
+
 
 ### Creation of a Wallet
 
@@ -126,11 +131,3 @@ You should run your own node.
     ```
     goal account list -d ~/node/testnetdata
     ```
-
-
-
-
-### Algorand System Architecture
-
-
-![Algorand Network Architecture](img/Algorand_Networks.png)
