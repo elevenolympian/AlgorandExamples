@@ -6,8 +6,10 @@ You should run your own node.
 
 1. You should install a node and then run it.
 
-2. Type the following commands
-   ```sudo apt-get update
+2. Type the following commands.
+
+   ```
+      sudo apt-get update
       sudo apt-get install -y gnupg2 curl software-properties-common
       curl -O https://releases.algorand.com/key.pub
       sudo apt-key add key.pub
@@ -21,24 +23,24 @@ You should run your own node.
       algod -v
    ```
 
-3. Then you should do the next steps
+3. Then you should do the next steps.
 
    ```mkdir ~/node
       cd ~/node  
    ```
-4. Download your updater script
+4. Download your updater script.
 
    ```
     wget https://raw.githubusercontent.com/algorand/go-algorand-doc/master/downloads/installers/update.sh
    ```
 
-5. Give the writing access with the following command
+5. Give the writing access with the following command. 
 
    ```
     chmode 544 update.sh
    ```
 
-6. To install mainnet, you need to type the following command
+6. To install mainnet, you need to type the following command. 
 
    ```
     ./update.sh -i -c stable -p ~/node -d ~/node/data -n
@@ -53,24 +55,25 @@ You should run your own node.
 
 8. If you want to install the Testnet of Algorand, please insert the following command.
 
-      ```
+   ```
      goal node stop -d data
    ```
 
    or 
 
-      ```
+   ```
     goal node stop -d betanetdata
    ```
 
    follow the instructions
 
-         ```
+   ```
     mkdir testnetdata
     cp ~/node/genesisfiles/testnet/genesis.json ~/node/testnetdata
    ```
 
-9. To start or stop Algorand node, while the system is starting
+9. To start or stop Algorand node, while the system is starting.
+
          ```
     sudo systemctl start algorand
     sudo systemctl stop algorand
@@ -79,20 +82,21 @@ You should run your own node.
 
 ### Starting Node
 
-1. To start the test network
+1. To start the test network. 
 
-    ```goal node start -d ~/node/testnetdata
+    ```
+    goal node start -d ~/node/testnetdata
     goal node status -d ~/node/testnetdata
    ```
 
-2.  To start the betanet network
+2.  To start the betanet network. 
 
     ```
     goal node start -d ~/node/betanetdata
     goal node status -d ~/node/betanetdata
    ```
 
- 3. To start the mainnet network
+ 3. To start the mainnet network. 
 
     ```
     goal node start -d ~/node/data
@@ -100,17 +104,19 @@ You should run your own node.
     ```
 
 ### Creation of a Wallet
-1. To create a wallet 
+1. To create a wallet. 
 
     ```
     goal wallet new testnetwallet -d ~/node/testnetdata
     ```
-2. To create an account
+
+2. To create an account. 
 
     ```
     goal account new -d ~/node/testnetdata
     ```
-3. List accounts    
+
+3. List accounts. 
     
     ```
     goal account list -d ~/node/testnetdata

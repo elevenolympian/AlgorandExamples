@@ -117,3 +117,6 @@ dist
 
 # Algorand Accounts
 AlgorandAccounts/
+
+#Configuration of Auth
+config.js

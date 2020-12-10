@@ -1,4 +1,5 @@
 const algosdk = require('algosdk');
+const configAsset = require('./config.js');
 
 //Retrieve the token, server and port values for your installation in the algod.net 
 // and algod.token files within the data directory
@@ -64,12 +65,13 @@ const printAssetHolding = async function(algodclient, account, assetid) {
         }
     }
 };
-
-var account1_mnemonic = "child raise naive practice regret bicycle exit either blanket actual crane couch gossip talk inhale narrow village cash sand donor ask else range absent party";
-
+var account1_mnemonic = configAsset.development.algorand_mainnet_mnemonic
+var account2_mnemonic = configAsset.development.algorand_testnet_mnemonic
 var recoverAccount = algosdk.mnemonicToSecretKey(account1_mnemonic);
+var testnetAccount = algosdk.mnemonicToSecretKey(account2_mnemonic);
 
-console.log("recover account id" + recoverAccount.addr);
+console.log("recover account address: " + recoverAccount.addr);
+console.log("testnetalgorand account address: " + testnetAccount.addr);
 
 //Instantiate algod wrapper
 let algodclient = new algosdk.Algodv2(token, server, port);
@@ -110,7 +112,7 @@ let algodclient = new algosdk.Algodv2(token, server, port);
     let assetMetadataHash = "16efaa3924a6fd9d3a4824799a4ac65d";
 
     //signing and sending "txn" allows "addr" to create an asset
-    let txt = algosdk.makeAssetDestroyTxnWithSuggestedParams(addr, note, totalIssuance, decimals, defaultFrozen, manager, reserve, freeze, 
+    let txn = algosdk.makeAssetDestroyTxnWithSuggestedParams(addr, note, totalIssuance, decimals, defaultFrozen, manager, reserve, freeze, 
         clawback, unitName, assetName, assetURL, assetMetadataHash, params);
 
     let rawSignedTxn = txn.signTxn(recoverAccount.sk)
@@ -122,6 +124,16 @@ let algodclient = new algosdk.Algodv2(token, server, port);
     // get the asset info
     let ptx = await algodclient.pendingTransactionInformation(tx.txId).do();
     assetID = ptx["asset-index"];
-    
 
+    console.log("Show me the assetID: " + assetID);
+
+    await printCreatedAsset(algodclient, recoverAccount, assetID);
+    await printAssetHolding(algodclient, recoverAccount.addr, assetID);
+
+    //Change Asset Configuration
+    //Change the manager using an asset configuration transaction
+
+    // First update changing transaction parameters
+    // We will account for changing transaction parameters 
+    // before every transaction in this example
 })
