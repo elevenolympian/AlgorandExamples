@@ -106,13 +106,6 @@ You should run your own node.
     ```
 
 
-
-<!-- ### Algorand System Architecture
-
-
-![Algorand Network Architecture](img/Algorand_Networks.png)
- -->
-
 ### Creation of a Wallet
 
 
