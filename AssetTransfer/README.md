@@ -28,6 +28,7 @@ You should run your own node.
    ```mkdir ~/node
       cd ~/node  
    ```
+
 4. Download your updater script.
 
    ```
@@ -82,6 +83,7 @@ You should run your own node.
 
 ### Starting Node
 
+
 1. To start the test network. 
 
     ```
@@ -103,7 +105,10 @@ You should run your own node.
     goal node status -d ~/node/data
     ```
 
+
 ### Creation of a Wallet
+
+
 1. To create a wallet. 
 
     ```
@@ -127,4 +132,5 @@ You should run your own node.
 
 ### Algorand System Architecture
 
-[![Algorand Network Architecture Screenshot][network-screenshot]](https://github.com/elevenolympian/AlgorandExamples/tree/development/AssetTransfer/img/Algorand_Networks.png)
+
+![Algorand Network Architecture](img/Algorand_Networks.png)
