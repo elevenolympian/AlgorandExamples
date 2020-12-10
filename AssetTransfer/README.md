@@ -98,12 +98,14 @@ You should run your own node.
     goal node status -d ~/node/betanetdata
    ```
 
- 3. To start the mainnet network. 
+3. To start the mainnet network. 
 
     ```
     goal node start -d ~/node/data
     goal node status -d ~/node/data
     ```
+
+
 
 ### Algorand System Architecture
 
